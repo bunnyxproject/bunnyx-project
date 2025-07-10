@@ -1,82 +1,64 @@
-import { useEffect, useState } from 'react';
-import logoLight from '../assets/logolight.svg';
-import logoDark from '../assets/logodark.svg';
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import logo from '../assets/logolight.svg'
 
-function Navbar() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+export default function Navbar() {
+  const [visible, setVisible] = useState(true)
+  const [lastY, setLastY]   = useState(0)
 
-  // Deteksi mode tema (dark/light)
   useEffect(() => {
-    const matchDark = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDarkMode(matchDark.matches);
-
-    const handleChange = (e) => setIsDarkMode(e.matches);
-    matchDark.addEventListener('change', handleChange);
-    return () => matchDark.removeEventListener('change', handleChange);
-  }, []);
-
-  // Deteksi arah scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      if (currentY > lastScrollY && currentY > 80) {
-        // Scroll ke bawah
-        setShowNavbar(false);
-      } else {
-        // Scroll ke atas
-        setShowNavbar(true);
-      }
-      setLastScrollY(currentY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+    const onScroll = () => {
+      const y = window.scrollY
+      setVisible(y < lastY || y < 100)
+      setLastY(y)
+    }
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [lastY])
 
   return (
     <nav
-      style={{
-        width: '100%',
-        position: 'fixed',
-        top: showNavbar ? 0 : '-100px',
-        transition: 'top 0.3s ease',
-        zIndex: 100,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '1rem 2rem',
-        backgroundColor: 'rgba(0, 0, 0, 0)',
-        //backdropFilter: 'blur(8px)',
-        color: '#fff',
-      }}
+      className={`
+        fixed inset-x-0 top-0 z-50
+        bg-black bg-opacity-80 backdrop-blur-sm
+        transition-transform duration-300
+        ${visible ? 'translate-y-0' : '-translate-y-full'}
+      `}
     >
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-        <img
-          src={isDarkMode ? logoDark : logoLight}
-          alt="Bunny x Project"
-          style={{
-            height: '70px',
-            marginLeft: '100px',
-          }}
-        />
-      </div>
+      <div
+        className="
+          w-full max-w-7xl mx-auto
+          grid grid-cols-[auto_1fr_auto]
+          items-center
+          px-6 py-3
+        "
+      >
 
-      <div style={{ flex: 1, textAlign: 'center', fontSize: '0.9rem' }}>
-        <span style={{ margin: '0 1rem', cursor: 'pointer' }}>ALL ITEMS (☉.☉)⊃</span>
-        <span style={{ margin: '0 1rem', cursor: 'pointer' }}>CONTACT</span>
-      </div>
+        <Link to="/" className="flex-shrink-0">
+          <img src={logo} alt="Logo" className="h-8 w-auto" />
+        </Link>
 
-      <div style={{ flex: 1, textAlign: 'right', fontSize: '0.9rem', paddingRight: '100px' }}>
-        <span style={{ margin: '0 0.5rem' }}>Indonesia (IDR Rp)</span>
-        <span style={{ margin: '0 0.5rem' }}>EN</span>
-        <span style={{ margin: '0 0.5rem' }}>🔍</span>
-        <span style={{ margin: '0 0.5rem' }}>👤</span>
-        <span style={{ margin: '0 0.5rem' }}>🛒</span>
+        <div className="flex justify-center space-x-8">
+          <Link to="/all-items" className="text-white hover:text-gray-300">
+            ALL ITEMS ᕦ(ò_óˇ)ᕤ
+          </Link>
+          <Link to="/contact" className="text-white hover:text-gray-300">
+            CONTACT
+          </Link>
+        </div>
+
+        <div className="flex justify-end items-center space-x-4 text-white">
+          <div className="hidden lg:flex items-center space-x-1 hover:text-gray-300">
+            <span>IDR Rp</span><span className="text-xs">▼</span>
+          </div>
+          <div className="hidden md:flex items-center space-x-1 hover:text-gray-300">
+            <span>EN</span><span className="text-xs">▼</span>
+          </div>
+          <Link to="/search" className="text-lg hover:text-gray-300">🔍</Link>
+          <Link to="/account" className="text-lg hover:text-gray-300">👤</Link>
+          <Link to="/cart" className="text-lg hover:text-gray-300">🛒</Link>
+        </div>
       </div>
     </nav>
-  );
+  )
 }
-
-export default Navbar;

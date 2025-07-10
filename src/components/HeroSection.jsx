@@ -1,24 +1,20 @@
-function HeroSection() {
+import { forwardRef } from 'react';
+
+const HeroSection = forwardRef((props, ref) => {
   return (
     <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: '#fff',
-      }}
-      >
-      <h1 style={{ fontSize: '3rem', fontWeight: 'bold', color: '#fff' }}>
-      Bunny <span style={{ color: '#E12750' }}>x</span> Project
+      ref={ref}
+      className="h-screen flex flex-col justify-center items-center text-white"
+    >
+      <h1 className="text-5xl font-bold">
+        Bunny <span className="text-[#E12750]">x</span> Project
       </h1>
-      <p>Streetwear Drop 1</p>
-      <a href="#products" style={{ marginTop: '2rem', fontSize: '1.5rem', color: '#fff', textDecoration: 'none' }}>
+      <p className="mt-2">Streetwear Drop 1</p>
+      <a href="#products" className="mt-6 text-xl">
         ↓ Scroll
       </a>
     </div>
   );
-}
+});
 
 export default HeroSection;

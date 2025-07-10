@@ -29,7 +29,7 @@ viewBox="0 0 10000 10000"
   <style type="text/css">
    <![CDATA[
     @font-face { font-family:"Geometr415 Blk BT";font-variant:normal;font-style:normal;font-weight:normal;src:url("#FontID0") format(svg)}
-    .fil0 {fill:white}
+    .fil0 {fill:black}
     .fil1 {fill:#E12750;fill-rule:nonzero}
     .fnt0 {font-weight:normal;font-size:2708.01px;font-family:'Geometr415 Blk BT'}
     .fnt1 {font-weight:normal;font-size:2708.02px;font-family:'Geometr415 Blk BT'}
@@ -38,22 +38,20 @@ viewBox="0 0 10000 10000"
  </defs>
  <g id="Layer_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <g id="_896403472">
-   <g>
-    <text x="-226.47" y="7274.73"  class="fil0 fnt0">P</text>
-    <text x="1164.83" y="7274.73"  class="fil0 fnt0">R</text>
-    <text x="2581.82" y="7274.73"  class="fil0 fnt0">O</text>
-    <text x="4501.05" y="7274.73"  class="fil0 fnt0">J</text>
-    <text x="5332.21" y="7274.73"  class="fil0 fnt0">E</text>
-    <text x="6595.91" y="7274.73"  class="fil0 fnt0">C</text>
-    <text x="8319.31" y="7274.73"  class="fil0 fnt0">T</text>
-    <text x="-226.47" y="4643.62"  class="fil0 fnt1">B</text>
-    <text x="1219.87" y="4643.62"  class="fil0 fnt1">U</text>
-    <text x="2914.82" y="4643.62"  class="fil0 fnt1">N</text>
-    <text x="4668.32" y="4643.62"  class="fil0 fnt1">N</text>
-    <text x="6721.22" y="4643.62"  class="fil0 fnt1">Y</text>
-   </g>
-   <path class="fil1" d="M8982.55 4334.43l0 -421.39 285.63 -222.65 -285.63 -222.64 0 -421.39 527.82 431.37 482.51 -370.25 0 407.67 -234.29 175.24 234.29 175.25 0 407.67 -482.51 -370.25 -527.82 431.37zm0 0z"/>
+  <g id="_1060539616">
+   <text x="-226.47" y="7274.73"  class="fil0 fnt0">P</text>
+   <text x="1164.83" y="7274.73"  class="fil0 fnt0">R</text>
+   <text x="2581.82" y="7274.73"  class="fil0 fnt0">O</text>
+   <text x="4501.05" y="7274.73"  class="fil0 fnt0">J</text>
+   <text x="5332.21" y="7274.73"  class="fil0 fnt0">E</text>
+   <text x="6595.91" y="7274.73"  class="fil0 fnt0">C</text>
+   <text x="8319.31" y="7274.73"  class="fil0 fnt0">T</text>
+   <text x="-226.47" y="4643.62"  class="fil0 fnt1">B</text>
+   <text x="1219.87" y="4643.62"  class="fil0 fnt1">U</text>
+   <text x="2914.82" y="4643.62"  class="fil0 fnt1">N</text>
+   <text x="4668.32" y="4643.62"  class="fil0 fnt1">N</text>
+   <text x="6721.22" y="4643.62"  class="fil0 fnt1">Y</text>
   </g>
+  <path class="fil1" d="M8982.55 4334.43l0 -421.39 285.63 -222.65 -285.63 -222.64 0 -421.39 527.82 431.37 482.51 -370.25 0 407.67 -234.29 175.24 234.29 175.25 0 407.67 -482.51 -370.25 -527.82 431.37zm0 0z"/>
  </g>
 </svg>
